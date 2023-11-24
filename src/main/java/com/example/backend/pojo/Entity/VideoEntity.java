@@ -22,13 +22,17 @@ public class VideoEntity {
     private Long id;
 
     @NotNull
-    @ElementCollection
-    private List<String> url;
+    private String url;
 
     @NotNull
-    @ElementCollection
-    private List<String> title;
+    private String thumb;
 
-    @ElementCollection
-    private List<String> brief;
+    @NotNull
+    private String title;
+
+    @NotNull
+    private String type;
+
+    @NotNull
+    private String tag;
 }
