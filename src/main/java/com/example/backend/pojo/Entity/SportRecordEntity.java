@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -37,5 +38,10 @@ public class SportRecordEntity {
     private int duration; // 跑步时间，秒计
 
     @NotNull
-    public List<Double[]> latLngList;
+    @ElementCollection
+    public List<Double> latitude;
+
+    @NotNull
+    @ElementCollection
+    public List<Double> longitude;
 }

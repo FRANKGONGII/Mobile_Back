@@ -11,6 +11,7 @@ import java.util.List;
 @RestController()
 @RequestMapping("v1")
 public class SportRecordController {
+
     @Autowired
     private SportRecordService sportRecordService;
     @GetMapping("/record/{id}")
