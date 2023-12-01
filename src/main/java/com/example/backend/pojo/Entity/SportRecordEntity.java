@@ -37,14 +37,12 @@ public class SportRecordEntity {
     @NotNull
     private int duration; // 跑步时间，秒计
 
-    @NotNull
-    private List<LatLng> LatLang;
+//    @NotNull
+//    private List<LatLng> LatLang;
 
-//    @NotNull
-//    @ElementCollection
-//    public List<Double> latitude;
-//
-//    @NotNull
-//    @ElementCollection
-//    public List<Double> longitude;
+    @NotNull
+    public double[] latitudeList;
+
+    @NotNull
+    public double[] longitudeList;
 }
