@@ -45,4 +45,7 @@ public class SportRecordEntity {
 
     @NotNull
     public double[] longitudeList;
+
+
+
 }

@@ -7,12 +7,14 @@ import java.util.Map;
 
 @Slf4j
 public enum RecordType {
-    RUNNING,RIDING,WALKING,FITNESS;
+    RUNNING,RIDING,WALKING,SWIMMING;
     private static final HashMap<RecordType,String> mp = new HashMap<RecordType,String>(){{
         put(RUNNING,"跑步");
         put(RIDING,"骑行");
         put(WALKING,"健走");
-        put(FITNESS,"健身");
+        put(SWIMMING,"游泳");
+
+
     }};
 
     public static RecordType getValue(String type) {
@@ -21,7 +23,8 @@ public enum RecordType {
                 return entry.getKey();
             }
         }
-        log.warn("不存在该状态");
+
+        //Log.d("Record","Undefined type");
         return null;
     }
 

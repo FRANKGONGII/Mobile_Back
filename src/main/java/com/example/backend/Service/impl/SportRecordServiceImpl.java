@@ -24,10 +24,15 @@ public class SportRecordServiceImpl implements SportRecordService {
     @Override
     public List<SportRecordEntity> getByInfo(RecordType recordType, Date startDate, Date endDate) {
         List<SportRecordEntity> result;
-        if(recordType == null){
+        if(recordType == null&&startDate==null&&endDate==null){
+            result = getAll();
+        }else if(recordType == null){
+            System.out.println("here");
             result = sportRecordDao.findByStartTimeGreaterThanEqualAndStartTimeLessThanEqual(startDate, endDate);
-        }else if(startDate == null){
+        }else if(startDate == null&&endDate==null){
+            System.out.println("here1");
             result = sportRecordDao.findByRecordType(recordType);
+            System.out.println(result.size());
         }else {
             result = sportRecordDao.findByRecordTypeAndStartTimeGreaterThanEqualAndStartTimeLessThanEqual(recordType, startDate, endDate);
         }
