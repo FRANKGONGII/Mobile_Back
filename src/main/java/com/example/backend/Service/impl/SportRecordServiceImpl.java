@@ -51,4 +51,6 @@ public class SportRecordServiceImpl implements SportRecordService {
     public void saveRecord(SportRecordEntity sportRecordEntity) {
         sportRecordDao.save(sportRecordEntity);
     }
+
+
 }

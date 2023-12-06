@@ -14,4 +14,6 @@ public interface SportRecordService {
     public SportRecordEntity getById(Long id);
 
     public void saveRecord(SportRecordEntity sportRecordEntity);
+
+
 }
