@@ -15,5 +15,4 @@ public interface SportRecordService {
 
     public void saveRecord(SportRecordEntity sportRecordEntity);
 
-
 }
