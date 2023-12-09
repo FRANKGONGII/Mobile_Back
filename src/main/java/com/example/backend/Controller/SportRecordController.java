@@ -1,11 +1,12 @@
 package com.example.backend.Controller;
 
-import ch.qos.logback.core.pattern.color.YellowCompositeConverter;
-import com.example.backend.Request.RequestRecordInfo;
 import com.example.backend.Service.SportRecordService;
 import com.example.backend.pojo.Entity.SportRecordEntity;
 import com.example.backend.pojo.Enum.RecordType;
+import com.example.backend.pojo.Vo.SportRecordSaveRequest;
+import com.example.backend.util.CommonResponse;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.TimeZone;
 
+@Slf4j
 @RestController()
 @RequestMapping("v1")
 public class SportRecordController {
@@ -25,17 +27,18 @@ public class SportRecordController {
     private SportRecordService sportRecordService;
 
     @GetMapping("/record/{id}")
-    public SportRecordEntity getRecord(@Valid @PathVariable Long id){
-        return sportRecordService.getById(id);
+    public CommonResponse<SportRecordEntity> getRecord(@Valid @PathVariable Long id, @RequestParam Long userId){
+        return CommonResponse.success(sportRecordService.getById(userId ,id));
     }
 
     @GetMapping("/record")
-    public List<SportRecordEntity> getRecords(){
-        return sportRecordService.getAll();
+    public CommonResponse<List<SportRecordEntity>> getRecords(@RequestParam Long userId){
+        return CommonResponse.success(sportRecordService.getAll(userId));
     }
 
     @GetMapping("/record/info")
-    public List<SportRecordEntity> getRecordsByInfo(
+    public CommonResponse<List<SportRecordEntity>> getRecordsByInfo(
+            @Valid @RequestParam Long userId,
             @Valid @RequestParam String endDate,
             @Valid @RequestParam String recordType,
             @Valid @RequestParam String startDate)  {
@@ -74,14 +77,14 @@ public class SportRecordController {
 
 
 
-        return sportRecordService.getByInfo(type, st, et);
+        return CommonResponse.success(sportRecordService.getByInfo(userId, type, st, et));
     }
 
     @PostMapping("/record/save")
-    public void saveRecord(@Valid @RequestBody SportRecordEntity sportRecordEntity){
-        System.out.println(sportRecordEntity.getId());
-        System.out.println(sportRecordEntity.getEndTime());
-        sportRecordService.saveRecord(sportRecordEntity);
+    public CommonResponse<?> saveRecord(@Valid @RequestParam Long userId, @Valid @RequestBody SportRecordSaveRequest sportRecordSaveRequest){
+        log.info(String.valueOf(sportRecordSaveRequest.getEndTime()));
+        sportRecordService.saveRecord(userId, sportRecordSaveRequest);
+        return CommonResponse.success();
     }
 
 }

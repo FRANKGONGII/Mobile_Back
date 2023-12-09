@@ -29,9 +29,6 @@ public class UserEntity {
     private String password;
 
     @NotNull
-    private String name;
-
-    @NotNull
     @Email
     private String email;
 
@@ -39,7 +36,5 @@ public class UserEntity {
     @Pattern(regexp = "1[3-9][0-9]{9}")
     private String phone;
 
-    @Transient
-    private SportRecordEntity[] records;
 
 }

@@ -1,27 +1,13 @@
-package com.example.backend.pojo.Entity;
-
-import com.amap.api.maps.model.LatLng;
+package com.example.backend.pojo.Vo;
 
 import com.example.backend.pojo.Enum.RecordType;
 import jakarta.validation.constraints.NotNull;
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Data
-@Table
-@Entity
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class SportRecordEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class SportRecordSaveRequest {
     @NotNull
     private Long userId;
 
@@ -45,6 +31,4 @@ public class SportRecordEntity {
 
     @NotNull
     public double[] longitudeList;
-
-
 }

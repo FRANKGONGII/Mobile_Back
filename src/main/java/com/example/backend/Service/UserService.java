@@ -7,18 +7,15 @@ import org.apache.catalina.User;
 import java.util.List;
 
 public interface UserService {
-    public List<UserEntity> getAll();
 
-    public List<UserEntity> getByUserName(String userName);
+    public void login(String username, String password);
 
-    public List<UserEntity> getByName(String name);
+    public void register(String username, String password);
 
-    public UserEntity getById(Long id);
+    public void logOut(String username);
 
     public double getAllRecordDistance(Long id);
 
     public double getRecordDistanceByMonth(Long id, int month);
-
-    public void login(String userName, String password);
 
 }

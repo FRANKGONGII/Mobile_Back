@@ -8,8 +8,8 @@ import java.util.Date;
 import java.util.List;
 
 public interface SportRecordDao extends CrudRepository<SportRecordEntity, Long> {
-    public List<SportRecordEntity> findAll();
-    public List<SportRecordEntity> findByRecordType(RecordType recordType);
-    public List<SportRecordEntity> findByStartTimeGreaterThanEqualAndStartTimeLessThanEqual(Date startTime, Date endTime);
-    public List<SportRecordEntity> findByRecordTypeAndStartTimeGreaterThanEqualAndStartTimeLessThanEqual(RecordType recordType, Date startTime, Date endTime);
+    public List<SportRecordEntity> findAllByUserId(Long userId);
+    public List<SportRecordEntity> findAllByUserIdAndRecordType(Long userId, RecordType recordType);
+    public List<SportRecordEntity> findAllByUserIdAndStartTimeGreaterThanEqualAndStartTimeLessThanEqual(Long userId, Date startTime, Date endTime);
+    public List<SportRecordEntity> findAllByUserIdAndRecordTypeAndStartTimeGreaterThanEqualAndStartTimeLessThanEqual(Long userId, RecordType recordType, Date startTime, Date endTime);
 }

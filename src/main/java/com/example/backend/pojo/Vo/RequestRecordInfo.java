@@ -1,4 +1,4 @@
-package com.example.backend.Request;
+package com.example.backend.pojo.Vo;
 
 import com.example.backend.pojo.Enum.RecordType;
 import lombok.AllArgsConstructor;
