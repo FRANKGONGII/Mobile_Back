@@ -1,6 +1,7 @@
 package com.example.backend.Controller;
 
 
+import com.example.backend.util.BizException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -8,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 @CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 @RestController
@@ -16,6 +18,8 @@ public class HelloController {
 
     @PostMapping()
     public String getHello(@RequestParam String str){
+        if(!Objects.equals(str, "123"))
+           throw new BizException(603, "saga");
         return str;
     }
 

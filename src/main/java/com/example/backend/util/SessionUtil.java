@@ -23,15 +23,18 @@ public class SessionUtil {
     }
 
     public void logOut(Long id){
-        redisTemplate.delete(id);
+        if(Boolean.TRUE.equals(redisTemplate.hasKey(id))){
+            redisTemplate.delete(id);
+        }
     }
 
-    public boolean session(Long id){
+    public void session(Long id){
         if(Boolean.TRUE.equals(redisTemplate.hasKey(id))){
             Date date = new Date();
-            if(date.getTime() <= (Long) redisTemplate.opsForValue().get(id))
-                return true;
+            if(date.getTime() > (Long) redisTemplate.opsForValue().get(id)) {
+                redisTemplate.delete(id);
+                throw new BizException("用户登录过期");
+            }
         }
-        return false;
     }
 }

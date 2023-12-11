@@ -16,4 +16,8 @@ public interface SportRecordService {
 
     public void saveRecord(Long userId, SportRecordSaveRequest sportRecordSaveRequest);
 
+    public double getAllRecordDistance(Long id);
+
+    public double getRecordDistanceByMonth(Long id, int month);
+
 }

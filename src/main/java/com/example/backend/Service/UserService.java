@@ -14,8 +14,4 @@ public interface UserService {
 
     public void logOut(String username);
 
-    public double getAllRecordDistance(Long id);
-
-    public double getRecordDistanceByMonth(Long id, int month);
-
 }

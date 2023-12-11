@@ -63,5 +63,24 @@ public class SportRecordServiceImpl implements SportRecordService {
         sportRecordDao.save(sportRecordEntity);
     }
 
+    @Override
+    public double getAllRecordDistance(Long id) {
+        List<SportRecordEntity> sportRecordEntities = sportRecordDao.findAllByUserId(id);
+        double result = 0;
+        for(SportRecordEntity sportRecordEntity: sportRecordEntities){
+            result += sportRecordEntity.getDistance();
+        }
+        return result;
+    }
 
+    @Override
+    public double getRecordDistanceByMonth(Long id, int month) {
+        List<SportRecordEntity> sportRecordEntities = sportRecordDao.findAllByUserId(id);
+        double result = 0;
+        for(SportRecordEntity sportRecordEntity: sportRecordEntities){
+            if(sportRecordEntity.getStartTime().getMonth() + 1 == month)
+                result += sportRecordEntity.getDistance();
+        }
+        return result;
+    }
 }

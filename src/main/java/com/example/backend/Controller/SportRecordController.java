@@ -1,6 +1,7 @@
 package com.example.backend.Controller;
 
 import com.example.backend.Service.SportRecordService;
+import com.example.backend.Service.UserService;
 import com.example.backend.pojo.Entity.SportRecordEntity;
 import com.example.backend.pojo.Enum.RecordType;
 import com.example.backend.pojo.Vo.SportRecordSaveRequest;
@@ -87,4 +88,13 @@ public class SportRecordController {
         return CommonResponse.success();
     }
 
+    @GetMapping("/distances/{id}")
+    public CommonResponse<Double> getDistance(@Valid @PathVariable Long id){
+        return CommonResponse.success(sportRecordService.getAllRecordDistance(id));
+    }
+
+    @GetMapping("/distance/{id}")
+    public CommonResponse<Double> getDistance(@Valid @PathVariable Long id, @RequestParam int month){
+        return CommonResponse.success(sportRecordService.getRecordDistanceByMonth(id, month));
+    }
 }
