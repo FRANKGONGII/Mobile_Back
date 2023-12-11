@@ -57,4 +57,10 @@ public class UserServiceImpl implements UserService {
         sessionUtil.logOut(user.getId());
     }
 
+    @Override
+    public UserEntity session(Long id) {
+        sessionUtil.session(id);
+        return userDao.findById(id).get();
+    }
+
 }

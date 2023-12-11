@@ -14,4 +14,6 @@ public interface UserService {
 
     public void logOut(String username);
 
+    public UserEntity session(Long id);
+
 }
