@@ -19,7 +19,7 @@ public class SportRecordServiceImpl implements SportRecordService {
     @Autowired
     private SportRecordDao sportRecordDao;
     @Override
-    public List<SportRecordEntity> getAll(Long userId) {
+    public List<SportRecordEntity> getAllByUser(Long userId) {
         return sportRecordDao.findAllByUserId(userId);
     }
 
@@ -27,7 +27,7 @@ public class SportRecordServiceImpl implements SportRecordService {
     public List<SportRecordEntity> getByInfo(Long userId,RecordType recordType, Date startDate, Date endDate) {
         List<SportRecordEntity> result;
         if (recordType == null && startDate == null && endDate == null) {
-            result = getAll(userId);
+            result = getAllByUser(userId);
         } else if (recordType == null) {
             System.out.println("here");
             result = sportRecordDao.findAllByUserIdAndStartTimeGreaterThanEqualAndStartTimeLessThanEqual(userId, startDate, endDate);
@@ -82,5 +82,10 @@ public class SportRecordServiceImpl implements SportRecordService {
                 result += sportRecordEntity.getDistance();
         }
         return result;
+    }
+
+    @Override
+    public List<SportRecordEntity> findAll(){
+        return sportRecordDao.findAll();
     }
 }

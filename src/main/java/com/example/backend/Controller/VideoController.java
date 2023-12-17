@@ -17,12 +17,12 @@ public class VideoController {
     @Autowired
     private VideoService videoService;
 
-    @GetMapping("videos")
+    @GetMapping("/videos")
     public List<VideoEntity> getVideos(){
         return videoService.getVideos();
     }
 
-    @GetMapping("video/{id}")
+    @GetMapping("/video/{id}")
     public VideoEntity getVideos(@PathVariable Long id){
         return videoService.getVideoById(id);
     }

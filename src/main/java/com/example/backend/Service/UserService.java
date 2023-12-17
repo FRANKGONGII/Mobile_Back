@@ -16,4 +16,6 @@ public interface UserService {
 
     public UserEntity session(Long id);
 
+    public List<UserEntity> getUsers();
+
 }

@@ -12,4 +12,5 @@ public interface SportRecordDao extends CrudRepository<SportRecordEntity, Long> 
     public List<SportRecordEntity> findAllByUserIdAndRecordType(Long userId, RecordType recordType);
     public List<SportRecordEntity> findAllByUserIdAndStartTimeGreaterThanEqualAndStartTimeLessThanEqual(Long userId, Date startTime, Date endTime);
     public List<SportRecordEntity> findAllByUserIdAndRecordTypeAndStartTimeGreaterThanEqualAndStartTimeLessThanEqual(Long userId, RecordType recordType, Date startTime, Date endTime);
+    public List<SportRecordEntity> findAll();
 }

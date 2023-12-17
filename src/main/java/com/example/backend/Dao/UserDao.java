@@ -10,4 +10,6 @@ import java.util.List;
 public interface UserDao extends CrudRepository<UserEntity, Long> {
 
     public UserEntity findAllByUsername(String username);
+
+    public List<UserEntity> findAll();
 }

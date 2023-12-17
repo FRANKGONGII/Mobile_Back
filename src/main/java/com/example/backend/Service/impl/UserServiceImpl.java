@@ -6,6 +6,7 @@ import com.example.backend.pojo.Entity.SportRecordEntity;
 import com.example.backend.pojo.Entity.UserEntity;
 import com.example.backend.util.BizException;
 import com.example.backend.util.SessionUtil;
+import io.micrometer.observation.annotation.Observed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,6 +23,11 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private SessionUtil sessionUtil;
+
+    @Override
+    public List<UserEntity> getUsers(){
+        return userDao.findAll();
+    }
 
     @Override
     public void login(String username, String password) {

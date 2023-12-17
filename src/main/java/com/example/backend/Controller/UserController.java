@@ -4,9 +4,12 @@ import com.example.backend.Service.UserService;
 import com.example.backend.pojo.Entity.UserEntity;
 import com.example.backend.util.CommonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("v1")
@@ -14,6 +17,12 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+
+    @GetMapping("/users")
+    public CommonResponse<List<UserEntity>> getUser(){
+        return CommonResponse.success(userService.getUsers());
+    }
 
     @PostMapping("/login")
     public CommonResponse<?> login(String username, String password){

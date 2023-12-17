@@ -34,7 +34,12 @@ public class SportRecordController {
 
     @GetMapping("/record")
     public CommonResponse<List<SportRecordEntity>> getRecords(@RequestParam Long userId){
-        return CommonResponse.success(sportRecordService.getAll(userId));
+        return CommonResponse.success(sportRecordService.getAllByUser(userId));
+    }
+
+    @GetMapping("/allRecords")
+    public CommonResponse<List<SportRecordEntity>> getAllRecords(){
+        return CommonResponse.success(sportRecordService.findAll());
     }
 
     @GetMapping("/record/info")

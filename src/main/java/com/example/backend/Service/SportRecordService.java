@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface SportRecordService {
-    public List<SportRecordEntity> getAll(Long userId);
+    public List<SportRecordEntity> getAllByUser(Long userId);
 
     public List<SportRecordEntity> getByInfo(Long userId, RecordType recordType, Date startDate, Date endDate);
 
@@ -19,5 +19,7 @@ public interface SportRecordService {
     public double getAllRecordDistance(Long id);
 
     public double getRecordDistanceByMonth(Long id, int month);
+
+    public List<SportRecordEntity> findAll();
 
 }
