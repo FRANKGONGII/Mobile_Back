@@ -37,6 +37,7 @@ public class SportRecordController {
         return CommonResponse.success(sportRecordService.getAllByUser(userId));
     }
 
+
     @GetMapping("/allRecords")
     public CommonResponse<List<SportRecordEntity>> getAllRecords(){
         return CommonResponse.success(sportRecordService.findAll());
