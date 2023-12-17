@@ -50,7 +50,7 @@ public class SportRecordServiceImpl implements SportRecordService {
     }
 
     @Override
-    public void saveRecord(Long userId ,SportRecordSaveRequest sportRecordSaveRequest) {
+    public Long saveRecord(Long userId ,SportRecordSaveRequest sportRecordSaveRequest) {
         SportRecordEntity sportRecordEntity = SportRecordEntity.builder()
                 .userId(userId)
                 .recordType(sportRecordSaveRequest.getRecordType())
@@ -61,6 +61,7 @@ public class SportRecordServiceImpl implements SportRecordService {
                 .latitudeList(sportRecordSaveRequest.getLatitudeList())
                 .longitudeList(sportRecordSaveRequest.getLongitudeList()).build();
         sportRecordDao.save(sportRecordEntity);
+        return sportRecordEntity.getId();
     }
 
     @Override

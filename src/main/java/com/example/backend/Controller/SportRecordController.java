@@ -82,10 +82,9 @@ public class SportRecordController {
     }
 
     @PostMapping("/record/save")
-    public CommonResponse<?> saveRecord(@Valid @RequestParam Long userId, @Valid @RequestBody SportRecordSaveRequest sportRecordSaveRequest){
+    public CommonResponse<Long> saveRecord(@Valid @RequestParam Long userId, @Valid @RequestBody SportRecordSaveRequest sportRecordSaveRequest){
         log.info(String.valueOf(sportRecordSaveRequest.getEndTime()));
-        sportRecordService.saveRecord(userId, sportRecordSaveRequest);
-        return CommonResponse.success();
+        return CommonResponse.success(sportRecordService.saveRecord(userId, sportRecordSaveRequest));
     }
 
     @GetMapping("/distances/{id}")

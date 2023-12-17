@@ -14,7 +14,7 @@ public interface SportRecordService {
 
     public SportRecordEntity getById(Long userId ,Long id);
 
-    public void saveRecord(Long userId, SportRecordSaveRequest sportRecordSaveRequest);
+    public Long saveRecord(Long userId, SportRecordSaveRequest sportRecordSaveRequest);
 
     public double getAllRecordDistance(Long id);
 
