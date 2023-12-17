@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserService {
 
-    public void login(String username, String password);
+    public Long login(String username, String password);
 
     public void register(String username, String password);
 

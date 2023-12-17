@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     private SessionUtil sessionUtil;
 
     @Override
-    public void login(String username, String password) {
+    public Long login(String username, String password) {
         UserEntity userEntity = userDao.findAllByUsername(username);
         if (userEntity == null)
             throw new BizException("该用户不存在");
@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
         if (!bCryptPasswordEncoder.matches(password, userEntity.getPassword()))
             throw new BizException("用户名或密码错误");
         sessionUtil.login(userEntity.getId());
-        return;
+        return userEntity.getId();
     }
 
     @Override

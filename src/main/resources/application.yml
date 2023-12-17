@@ -5,7 +5,7 @@ spring:
       driver-class-name: org.postgresql.Driver
       url: jdbc:postgresql://localhost:5432/sports
       username: postgres
-      password: 123456
+      password: root
 #  data:
 #    mongodb:
 #      uri: mongodb://localhost:27017/test
@@ -25,5 +25,5 @@ spring:
     redis:
       host: localhost
       port: 6379
-      password: 123456
+      password: root
       database: 0
