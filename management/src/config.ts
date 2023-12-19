@@ -1,4 +1,4 @@
-const SERVER_ADDR = "https://localhost:8080";
+const SERVER_ADDR = "http://localhost:8081";
 
 import axios, { AxiosRequestConfig } from "axios";
 

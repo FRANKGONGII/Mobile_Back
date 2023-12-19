@@ -22,6 +22,7 @@ import java.util.TimeZone;
 @Slf4j
 @RestController()
 @RequestMapping("v1")
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class SportRecordController {
 
     @Autowired

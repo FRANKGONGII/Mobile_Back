@@ -26,14 +26,14 @@
 </template>
 
 <script lang="ts" setup>
-import {h, onMounted, reactive} from "vue";
+import {h, onMounted, reactive, ref} from "vue";
 import {request} from "@/config";
 import {ElNotification} from "element-plus";
 import {video, user, record} from "@/utils/interfaces.ts"
 
 
 let users = [] as user[]
-let user_len = -1
+let user_len = ref(-1)
 let userFilter = reactive({
   data: [] as user[]
 })
@@ -43,9 +43,13 @@ const getUserInfo = () =>{
     method : "GET"
   }).then((res)=>{
     users = res.data.data
-    userFilter.data = [...users]
-    user_len = users.length
+    user_len.value = users.length
     console.log(users)
+    ElNotification({
+      offset: 70,
+      title: "getUsers成功",
+      message: h('success', { style: 'color: teal' }, "获取成功"),
+    })
   }).catch((err)=>{
     console.log(err)
     ElNotification({
@@ -58,7 +62,7 @@ const getUserInfo = () =>{
 
 
 let videos = [] as video[]
-let video_len = -1
+let video_len = ref(-1)
 let videoFilter = reactive({
   data: [] as video[]
 })
@@ -68,9 +72,13 @@ const getVideoInfo = () =>{
     method : "GET"
   }).then((res)=>{
     videos = res.data.data
-    videoFilter.data = [...videos]
-    video_len = videos.length
+    video_len.value = videos.length
     console.log(videos)
+    ElNotification({
+      offset: 70,
+      title: "getVideos成功",
+      message: h('success', { style: 'color: teal' }, "获取成功"),
+    })
   }).catch((err)=>{
     console.log(err)
     ElNotification({
@@ -82,7 +90,7 @@ const getVideoInfo = () =>{
 }
 
 let records = [] as record[]
-let record_len = -1
+let record_len = ref(-1)
 let recordFilter = reactive({
   data: [] as record[]
 })
@@ -93,9 +101,13 @@ const getRecordInfo = () =>{
     method : "GET"
   }).then((res)=>{
     records = res.data.data
-    recordFilter.data = [...records]
-    record_len = records.length
+    record_len.value = records.length
     console.log(records)
+    ElNotification({
+      offset: 70,
+      title: "getRecords成功",
+      message: h('success', { style: 'color: teal' }, "获取成功"),
+    })
   }).catch((err)=>{
     console.log(err)
     ElNotification({
