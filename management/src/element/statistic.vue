@@ -29,14 +29,12 @@
 import {h, onMounted, reactive, ref} from "vue";
 import {request} from "@/config";
 import {ElNotification} from "element-plus";
-import {video, user, record} from "@/utils/interfaces.ts"
+import {video, userInfo, record} from "@/utils/interfaces.ts"
 
 
-let users = [] as user[]
+let users = [] as userInfo[]
 let user_len = ref(-1)
-let userFilter = reactive({
-  data: [] as user[]
-})
+
 const getUserInfo = () =>{
   request({
     url : "/users",
@@ -63,9 +61,6 @@ const getUserInfo = () =>{
 
 let videos = [] as video[]
 let video_len = ref(-1)
-let videoFilter = reactive({
-  data: [] as video[]
-})
 const getVideoInfo = () =>{
   request({
     url : "/videos",
@@ -91,9 +86,6 @@ const getVideoInfo = () =>{
 
 let records = [] as record[]
 let record_len = ref(-1)
-let recordFilter = reactive({
-  data: [] as record[]
-})
 
 const getRecordInfo = () =>{
   request({

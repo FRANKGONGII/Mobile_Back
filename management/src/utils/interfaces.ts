@@ -19,12 +19,12 @@ interface record{
     longitudeList:Array<number>,
 }
 
-interface user {
+interface userInfo {
     id: number,
-    name: string,
+    username: string,
     email: string,
     password: string,
     phone: string,
 }
 
-export {video, record, user}
+export {video, record, userInfo}
