@@ -7,10 +7,10 @@ interface video{
     tag:string
 }
 
-interface record{
+interface recordInfo {
     id:number,
     userId:number,
-    type:string,
+    recordType:string,
     startTime:string,
     endTime:string,
     distance:number,
@@ -27,4 +27,4 @@ interface userInfo {
     phone: string,
 }
 
-export {video, record, userInfo}
+export {video, recordInfo, userInfo}

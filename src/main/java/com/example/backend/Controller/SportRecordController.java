@@ -38,6 +38,11 @@ public class SportRecordController {
         return CommonResponse.success(sportRecordService.getAllByUser(userId));
     }
 
+    @GetMapping("/recordByUser/{id}")
+    public CommonResponse<?> getRecordByUserId(@Valid @PathVariable Long id){
+        return CommonResponse.success(sportRecordService.getAllByUser(id));
+    }
+
 
     @GetMapping("/allRecords")
     public CommonResponse<List<SportRecordEntity>> getAllRecords(){

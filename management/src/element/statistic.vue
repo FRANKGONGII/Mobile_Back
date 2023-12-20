@@ -29,7 +29,7 @@
 import {h, onMounted, reactive, ref} from "vue";
 import {request} from "@/config";
 import {ElNotification} from "element-plus";
-import {video, userInfo, record} from "@/utils/interfaces.ts"
+import {video, userInfo, recordInfo} from "@/utils/interfaces.ts"
 
 
 let users = [] as userInfo[]
@@ -84,7 +84,7 @@ const getVideoInfo = () =>{
   })
 }
 
-let records = [] as record[]
+let records = [] as recordInfo[]
 let record_len = ref(-1)
 
 const getRecordInfo = () =>{
