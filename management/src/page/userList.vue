@@ -144,12 +144,12 @@ let showRecord = ref(false)
                       <el-input v-model="record.distance"  style="width: 25vh" :disabled="true"/>
                     </el-form-item>
 
-                    <el-form-item v-for="(latitude, index) in record.latitudeList" label="经度{{index.toString()}}">
-                      <el-input placeholder="{{latitude.toString()}}"  style="width: 25vh" :disabled="true"/>
+                    <el-form-item v-for="(latitude, index) in record.latitudeList" :label="'经度' + index.toString()">
+                      <el-input :placeholder="latitude.toString()"  style="width: 25vh" :disabled="true"/>
                     </el-form-item>
 
-                    <el-form-item v-for="(longitude, index) in record.longitudeList" label="纬度{{index.toString()}}">
-                      <el-input placeholder="{{longitude.toString()}}"  style="width: 25vh" :disabled="true"/>
+                    <el-form-item v-for="(longitude, index) in record.longitudeList" :label="'纬度'+index.toString()">
+                      <el-input :placeholder="longitude.toString()"  style="width: 25vh" :disabled="true"/>
                     </el-form-item>
 
                   </el-form>

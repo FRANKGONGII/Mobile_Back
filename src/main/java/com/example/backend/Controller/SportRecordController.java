@@ -100,6 +100,14 @@ public class SportRecordController {
         return CommonResponse.success();
     }
 
+    @PostMapping("/record/save/{id}")
+    public CommonResponse<?> saveRecordByUser(@Valid @PathVariable Long id, @Valid @RequestBody SportRecordSaveRequest sportRecordSaveRequest){
+        log.info(String.valueOf(sportRecordSaveRequest.getEndTime()));
+        sportRecordSaveRequest.setUserId(id);
+        sportRecordService.saveRecord(id, sportRecordSaveRequest);
+        return CommonResponse.success();
+    }
+
     @GetMapping("/distances/{id}")
     public CommonResponse<Double> getDistance(@Valid @PathVariable Long id){
         return CommonResponse.success(sportRecordService.getAllRecordDistance(id));
