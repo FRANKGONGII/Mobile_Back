@@ -3,14 +3,16 @@
 </script>
 
 <template>
-  <el-container>
-    <el-header>
-      <NavigationMenu></NavigationMenu>
-    </el-header>
-    <el-main >
-      <router-view></router-view>
-    </el-main>
-  </el-container>
+  <div>
+    <el-container>
+      <el-header >
+        <NavigationMenu></NavigationMenu>
+      </el-header>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
+    </el-container>
+  </div>
 
 </template>
 
